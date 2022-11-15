@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BIDCX Widget</title>
+	<link rel="stylesheet" href="dist/cd-ondemand.css">
+</head>
+<body>
+
+<div>
+  <div class="cd-ondemand-container">
+    <div class="cd-ondemand" id="cd-ondemand-bidcx"></div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script src="dist/cd-ondemand-min.js"></script>
+<script src="dist/cd-ondemand-templates-min.js"></script>
+<script>
+  // example for Rams staging
+  // Change url and site id as in implentation.html for production environment
+(function($) {
+
+  $('#cd-ondemand-bidcx').ondemand({
+    site: 'https://bidcx.com/',
+    siteId: 1104483,
+    primaryColor: "black",
+    secondaryColor: "#f56a05",
+    background: "white",
+    titleWidget: "Live from BIDCX auctions",
+    parameters: 'sort=bidcount_desc',
+    sslImg: true,
+    items: 6,
+    liveUpdate: false,
+    utmString: '&utm_source=osuStore&utm_medium=ondemand&utm_campaign=ramsOndemand&isyntrk-mktcampnm=nnnNflRamsWidgBid',
+    template: 'widgetTemplate',
+    countdown: true
+  });
+
+// https://bidcx.com
+// sid=1104483
+
+})( jQuery );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<p><link rel="stylesheet" href="implementation.css"></p>
+
+<h1 id="ondemandauctionsimplementation">On Demand Auctions Implementation</h1>
+
+<h2 id="bidcxauctionsite">bidcx.com</h2>
+
+<h3 id="notes">Notes</h3>
+
+<ol>
+<li><p>You&#8217;ll likely have to edit the path to the cd-ondemand directory when you include css and js files.</p></li>
+<li><p>Most of the following should work out-of-the-box, with minimal configuration. What you need to know:</p>
+
+<ul>
+<li>The target auction site URL e.g. <code>https://bidcx.com/</code> <em>included in the parameters when launching the plugin</em></li>
+<li>The target auction site id e.g. <code>1104483</code> <em>included in the parameters when launching the plugin</em></li>
+<li>Your site’s main branding colours (as in CSS), used for heading and button backgrounds <em>applied to <code>cd-ondemand-title</code> elements and included in the parameters when launching the plugin</em></li>
+</ul></li>
+</ol>
+
+<p>Include the ondemand CSS in your <code>&lt;head&gt;</code>:</p>
+
+<pre><code>&lt;!-- Add ondemand CSS after main file so we can use that as a base --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;cd-ondemand/dist/cd-ondemand.css&quot;&gt;
+</code></pre>
+
+<p>Add the following code where you want to place the plugin. </p>
+
+<pre><code>&lt;div class=&quot;cd-ondemand-container&quot;&gt;
+  &lt;div class=&quot;cd-ondemand&quot; id=&quot;cd-ondemand-bidcx&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Before the closing <code>&lt;body&gt;</code> tag, include the on-demand scripts:</p>
+
+<pre><code>&lt;!-- cd-ondemand scripts --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://code.jquery.com/jquery.min.js&quot;&gt;&lt;/script&gt;  &lt;!-- Only needed if jquery is not present in the site --&gt;   
+&lt;script src=&quot;cd-ondemand/dist/cd-ondemand-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;cd-ondemand/dist/cd-ondemand-templates-min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>&#8230; then launch on-demand:</p>
+
+<pre><code>&lt;script&gt;
+(function($) {
+
+  $('#cd-ondemand-bidcx').ondemand({
+    site: '[auction site URL (no trailing /)]',
+    siteId: [auction site id],
+    primaryColor: '[Primary color]',
+    secondaryColor: '[Secondary color]',
+    background: '[Background color]',
+    titleWidget: "Title Goes Here",
+    parameters: 'pageName=partners&pgmode1=[Cause shortcode]&pgmode2=partner',
+    items: 3,
+    liveUpdate: false,
+    utmString: '&amp;utm_source=osuStore&amp;utm_medium=ondemand&amp;utm_campaign=bidcxOndemand&amp;isyntrk-mktcampnm=nnnNflbidcxWidgBid',
+    template: 'widgetTemplate',
+    countdown: true
+  });
+
+
+})( jQuery );
+
+&lt;/script&gt;
+</code></pre>
+<h3>Parameters that can be changed according to use case are explained as follows:</h3>
+<ul>
+  <li>site : The target auction site URL e.g. https://bidcx.com/</li>
+  <li>siteId : The target auction site id e.g. 1104483</li>
+  <li>primaryColor : Gives the color to widget title, auction title, current bid and bid now button text.</li>
+  <li>secondaryColor : Gives the color to counter, carousel Indicators and bid now button background.</li>
+  <li>background : Responsible for the background color of the widget.</li>
+  <li>titleWidget : Sets the title of the widget.</li>
+  <li>Parameters: Requires you to input short code of the cause to be displayed in widget.</li>
+  <li>Items: No of products to be fetched.</li>
+</ul>
+
+<p>Example for BIDCX Live:</p>
+
+<pre><code>&lt;script&gt;
+(function($) {
+
+  $('#cd-ondemand-bidcx').ondemand({
+    site: 'https://bidcx.com/',
+    siteId: 1104483,
+    primaryColor: "black",
+    secondaryColor: "#f56a05",
+    background: "white",
+    titleWidget: "Live from BIDCX auctions",
+    parameters: 'sort=bidcount_desc',
+    sslImg: true,
+    items: 6,
+    liveUpdate: false,
+    utmString: '&utm_source=osuStore&utm_medium=ondemand&utm_campaign=ramsOndemand&isyntrk-mktcampnm=nnnNflRamsWidgBid',
+    template: 'widgetTemplate',
+    countdown: true
+  });
+
+
+})( jQuery );
+
+&lt;/script&gt;
+</code></pre>
+
+</body>
+</html>

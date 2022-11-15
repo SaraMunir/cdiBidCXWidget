@@ -1,0 +1,28 @@
+// Variables
+
+$font-family-sans-serif: inherit;
+$top-padding:25px;
+$base-padding: 15px;
+$base-font-size: 15px;
+$small-font-size: 13px;
+
+$brand-primary: #f56a05;
+$brand-secondary: white;
+$border-color: #eaeaea;
+$inverse-color: white;
+$button-bg-color: $brand-primary;
+$button-hover-bg-color: darken($brand-primary, 10%);
+$title-color:White;
+$background-color:#252525;
+$current-bid-color:#fff;
+// Breakpoints
+
+$screen-xs-end: 480px;
+$screen-sm-end: 768px;
+$screen-md-end: 1000px;
+
+$screen-sm-start: $screen-xs-end + 1;
+$screen-md-start: $screen-sm-end + 1;
+$screen-lg-start: $screen-md-end + 1;
+
+@import "cd-ondemand-base";

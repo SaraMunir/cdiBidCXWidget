@@ -1,0 +1,227 @@
+@import "../lib/slick/slick.scss";
+@import "../lib/slick/slick-theme.scss";
+
+// Utility
+
+.cdo-clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.cd-ondemand-container{
+	background-color:$background-color;
+	font-family: 'Open Sans', sans-serif;
+	width: 95%;
+    margin: 0 auto;
+
+	.cd-ondemand-title{
+		padding:14px 0 20px 0;
+		font-size: 26pt;
+		// font-family: NFLEndzoneSansCondMedium !important;
+		text-align: center;
+    	text-transform: uppercase;
+		font-weight: 800;
+	}
+}
+
+.cd-ondemand {
+	@extend .cdo-clearfix;
+	font-family: $font-family-sans-serif;
+	margin-bottom: $base-padding;
+	margin-top:$top-padding;
+	@media screen and (min-width: $screen-md-start) {
+		padding-bottom: $base-padding * 3;
+	}
+	.cdo-list-item {
+		position: relative;
+		@media screen and (min-width: $screen-md-start) {
+			padding: 0 25px; // Space for carousel arrows
+		}
+	}
+
+
+	.cdo-list-item__image {
+		position:relative;
+		text-align: center;
+		padding: $base-padding / 2;
+		height: 150px;
+		display: block;
+		box-sizing: border-box;
+		@media screen and (min-width: $screen-sm-start) {
+		}
+		@media screen and (min-width: $screen-md-start) {
+			display: block;
+			// height: 300px;
+			float: left;
+			width: 48%;
+		}
+		@media screen and (min-width: $screen-lg-start) {
+			width: 40%;
+		}
+		a {
+			display: block;
+			height: 100%;
+			img {
+				padding: 0;
+				display: block;
+				max-width: 100%;
+				max-height: 100%;
+				margin: 0 auto;
+				width: auto;
+				height: auto;
+				//border: 1px solid $border-color;
+				padding: $base-padding / 2;
+			}
+		}
+		.cdo-list-item__logo{
+			position: absolute;
+		    left: 0px;
+		    top: 0px;
+		    img{
+		    	max-width:60px;
+		    }
+		}
+	}
+	.cdo-list-item__body {
+		font-size: $base-font-size;
+		text-align: center;
+		box-sizing: border-box;
+		@media screen and (min-width: $screen-md-start) {
+			float: right;
+			width: 49%;
+			text-align: left;
+			padding-left: 15px;
+			font-size: $base-font-size * 1;
+		}
+		@media screen and (min-width: $screen-lg-start) {
+			width: 60%;
+		}
+	}
+	.cdo-list-item__title {
+		line-height: 1.2;
+		margin-bottom: .5em;
+		margin-top: 0;
+		font-weight: bold;
+		padding: 0;
+		font-size: 1em;
+		a {
+	    text-decoration: none;
+	    color:$title-color;
+	    &:hover {
+	    }
+		}
+		@media screen and (max-width: $screen-sm-end) {
+			margin-top:25px;
+		}
+		@media screen and (min-width: $screen-md-start) {
+			height: 53px;
+    		overflow: hidden;
+		}
+	}
+	.cdo-list-item__details {
+		line-height: 1.5;
+		font-size: 1em;
+		@media screen and (min-width: $screen-sm-start) {
+		}
+		@media screen and (min-width: $screen-md-start) {
+			line-height: 1.6;
+		}
+		margin: 0;
+		list-style-type: none;
+		padding: 0;
+		li {
+			margin-left: 0;
+		}
+	}
+	.cdo-current-bid {
+		
+			color:$current-bid-color;
+		
+	}
+	.cdo-closes {
+		color: $brand-primary;
+		font-size: 1em;
+		@media screen and (min-width: $screen-md-start) {
+			font-size: 1em;
+		}
+	}
+	.cdo-num-bids {
+		font-size: 11px;
+	}
+	.cdo-action {
+		text-align: center;
+		margin-top:20px;
+		@media screen and (min-width: $screen-md-start) {
+			text-align: left;
+			// position: absolute;
+			// right: $base-padding / 2;
+			// bottom: $base-padding / 2;
+			// text-align: center;
+		}
+		@media screen and (max-width: $screen-sm-end) {
+			margin-bottom:30px;
+			
+		}
+	}
+	.cdo-btn--action {
+		display: inline-block;
+    background: $brand-primary;
+    border-radius: 0;
+    color: $inverse-color;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    padding-bottom: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+    &:hover {
+
+    }
+    width: 100%;
+    max-width: 20em;
+		@media screen and (min-width: $screen-md-start) {
+			min-width: 9em;
+			font-size: 1em;
+			width: auto;
+		}
+	}
+}
+
+.cd-ondemand--active {
+	display: block !important;
+}
+
+.slick-prev, .slick-next {
+	width: 30px;
+	height: 30px;
+	z-index:999;
+	@media screen and (max-width: $screen-sm-end) {
+		// display: none !important;
+	}
+	&:before {
+		color: $brand-primary;
+		font-size: 30px;
+	}
+}
+
+.slick-dots {
+	bottom:-45px;
+}
+
+.slick-prev {
+	left: -15px;
+}
+
+.slick-next {
+	right: -15px;
+}
